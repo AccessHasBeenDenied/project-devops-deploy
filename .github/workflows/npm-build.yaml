@@ -37,7 +37,9 @@ jobs:
           registry-url: https://npm.pkg.github.com
           scope: '@accesshasbeendenied'
       - run: npm clean-install
-      - run: npm version patch --no-git-tag-version 
+      - run: |
+          sed -i '/"private":/d' package.json
+          npm version patch --no-git-tag-version 
       - run: npm publish --registry https://npm.pkg.github.com --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
