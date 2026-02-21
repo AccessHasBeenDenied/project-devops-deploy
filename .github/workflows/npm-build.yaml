@@ -38,7 +38,8 @@ jobs:
           scope: '@accesshasbeendenied'
       - run: npm clean-install
       - run: |
-          sed -i '/"private":/d' package.json
+          npm pkg set name=@accesshasbeendenied/project-devops-deploy-frontend
+          npm pkg set private=false
           npm version patch --no-git-tag-version 
       - run: npm publish --registry https://npm.pkg.github.com --access public
         env:
