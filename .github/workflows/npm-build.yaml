@@ -15,11 +15,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npm ci
+          cache: 'npm' 
+          registry-url: https://npm.pkg.github.com 
+      - run: npm ci --ignore-scripts
       - run: npm run build --if-present
+      - uses: actions/upload-artifact@v4 
+        with:
+          name: frontend-build
+          path: ./frontend/dist 
 
   publish-gpr:
     needs: build
+#    if: github.ref == 'refs/heads/main'
     defaults:
       run:
         working-directory: ./frontend
@@ -29,10 +36,16 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+          path: ./frontend/dist
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          registry-url: 'https://npm.pkg.github.com'
+          cache: 'npm'
+          registry-url: https://npm.pkg.github.com  # GitHub Packages only
+#          scope: '@YOURORG'
       - run: npm ci
       - run: npm publish
         env:
