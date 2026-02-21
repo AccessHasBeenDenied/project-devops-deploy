@@ -39,7 +39,7 @@ jobs:
       - run: npm clean-install
       - run: |
           npm pkg set name=@accesshasbeendenied/project-devops-deploy-frontend
-          npm pkg set private=false
+          npm pkg delete private
           npm version patch --no-git-tag-version 
       - run: npm publish --registry https://npm.pkg.github.com --access public
         env:
