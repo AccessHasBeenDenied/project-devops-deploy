@@ -16,7 +16,6 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
-      - run: sed 's/dist$//g' .gitignore > .npmignore
       - run: npm clean-install
       - run: npm run build --if-present
 
