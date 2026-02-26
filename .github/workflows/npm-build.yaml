@@ -34,6 +34,7 @@ jobs:
           node-version: 24
           registry-url: https://registry.npmjs.org
       - run: npm clean-install
+      - run: npm run build --if-present
       - run: |
           npm pkg set name=@_accesshasbeendenied/project-devops-deploy-frontend
           npm pkg delete private
