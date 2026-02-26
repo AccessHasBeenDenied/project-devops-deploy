@@ -38,7 +38,7 @@ jobs:
       - run: |
           npm pkg set name=@_accesshasbeendenied/project-devops-deploy-frontend
           npm pkg delete private
-          npm version patch --no-git-tag-version 
+          npm version patch
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
