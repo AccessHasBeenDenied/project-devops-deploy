@@ -1,5 +1,8 @@
 # Project DevOps Deploy
 
+[![Backend](https://github.com/AccessHasBeenDenied/project-devops-deploy/actions/workflows/docker-build.yaml/badge.svg?branch=dev)](https://github.com/AccessHasBeenDenied/project-devops-deploy/actions/workflows/docker-build.yaml)
+[![Frontend](https://github.com/AccessHasBeenDenied/project-devops-deploy/actions/workflows/npm-build.yaml/badge.svg?branch=dev)](https://github.com/AccessHasBeenDenied/project-devops-deploy/actions/workflows/npm-build.yaml)
+
 Bulletin board service.
 
 > **Fork policy**: this upstream repository is read-only. We do not review or merge pull requests and we do not accept infrastructure changes (Dockerfiles, Ansible roles, CI/CD workflows, etc.). To experiment or extend the project, fork it and work inside your own repository.
